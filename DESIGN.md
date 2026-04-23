@@ -1,231 +1,85 @@
-# Design System: AI Landing Workshop
+# Design System: ThisWeb Hyper Lab
 
 ## 1. Visual Theme & Atmosphere
 
-這是一個帶有創作者工作室氣質的編輯型轉換頁，不是 SaaS 儀表板，也不是浮誇的行銷漏斗頁。整體氛圍要像一本排版精準、節奏克制、可信度很高的獨立出版物：安靜、專業、帶有人味，但不依賴講者個人形象作為第一視覺。首頁第一屏的任務不是炫技，而是讓人一眼理解「這堂課能幫我把網站做出來，而且方法有架構」。
+This system uses a cold-white, high-contrast product aesthetic with a more experimental edge than a typical SaaS landing page. The mood should feel like a concept lab or future showroom: bright, spatial, glassy, and sharp without falling into purple-neon cyberpunk.
 
-- **Density:** 4/10，Gallery Airy 偏 Daily App Balanced。每個區塊有清楚呼吸感，不做資訊壓縮牆。
-- **Variance:** 7/10，Offset Asymmetric。版面避免對稱置中與制式區塊堆疊，使用偏移標題、錯位欄寬、留白斷點建立張力。
-- **Motion:** 5/10，Fluid CSS。動畫存在感低於排版與內容，不做炫目編舞，只用節奏與細微位移提升精緻感。
-- **Creative posture:** 像「懂設計語言的實作導師」而不是「高冷藝術品牌」。
-- **Conversion posture:** 整站最終目標是收集等候名單，因此每個區塊都要為理解、信任、行動三件事服務。
-
-Hero 採用非置中的編輯式構圖：左側或偏左主欄承載 headline、說明與單一 CTA；右側或下方以抽象化的「工作流材料」作為視覺內容，例如介面切片、文案草稿、便條、框線式模組，而不是人物照或 3D 裝飾。講者介紹是後段獨立區塊，不能提早佔據主視覺焦點。
+Creativity is intentionally concentrated in the high-impact moments. Hero sections, major CTAs, and section transitions can use stronger spatial composition, translucent surfaces, cobalt light trails, and subtle 3D forms. Reading-heavy sections should stay calmer, flatter, and easier to scan so the site keeps its conversion clarity.
 
 ## 2. Color Palette & Roles
 
-全站維持一套偏冷中性的紙感灰階，加上一個低飽和的深青綠作為唯一強調色。不要在不同區塊切換暖灰與冷灰，也不要出現任何紫藍科技霓虹語彙。
+### Core Surfaces
 
-- **Paper Canvas** (`#F5F3EE`) — 全站主背景。帶輕微紙感的暖灰白，讓頁面不像模板白板。
-- **Editorial Surface** (`#FCFBF8`) — 區塊內層底、表單背景、內容承載面。比主背景再亮一點，維持層次但不跳色。
-- **Ink Charcoal** (`#171717`) — 主文字、標題、按鈕深色版本。不可替換成純黑。
-- **Graphite Secondary** (`#5F5B57`) — 次要文字、段落說明、欄位提示、表單補充文案。
-- **Quiet Line** (`#D9D2C8`) — 細框線、分隔線、表單邊框、低對比結構線。
-- **Soft Field** (`#ECE7DE`) — 區塊底紋、卡片弱底色、hover 的靜態底層。
-- **Studio Moss** (`#516A5B`) — 唯一 accent。用於主 CTA、focus ring、重點連結、局部 icon、表單互動狀態。
-- **Studio Moss Deep** (`#435749`) — CTA hover、active state、深色標記底。
-- **Alert Rust** (`#A35A3A`) — 僅用於錯誤、提醒、表單驗證，不可拿來當第二 accent。
+- **Ice Canvas** (`#F5F7FF`) — Primary page background
+- **Pure Plane** (`#FFFFFF`) — Cards, elevated surfaces, image frames
+- **Mist Popover** (`#FBFCFF`) — Floating panels and overlays
+- **Graphite Ink** (`#111827`) — Primary text and high-contrast UI copy
+- **Slate Signal** (`#5E6C8F`) — Secondary text, descriptions, helper copy
+- **Cool Border** (`#DBE3FF`) — Structural borders and dividers
 
-色彩使用規則：
+### Brand Bases
 
-- accent 只允許 `Studio Moss` 系列，不可另外加入藍色、紫色、亮橘色 CTA。
-- 不用大面積飽和底色區塊；視覺層次主要靠留白、框線、字重與欄寬變化建立。
-- 陰影必須極淡、偏背景色調，不可出現黑色投影或 glow。
-- 深色模式不是此設計語言的主軸；若生成工具預設提供 dark mode，視為非必要變體。
+- **Primary / Cobalt Pulse** (`#2453FF`) — Main CTAs, active states, focus intent, hero energy
+- **Secondary / Frost Wash** (`#EDF2FF`) — Secondary fills, subtle chips, quiet panels
+- **Tertiary / Soft Prism** (`#DBE4FF`) — Intermediate surfaces, layered backgrounds, calm emphasis
+
+### Derived Brand Tokens
+
+Each brand color family must expose the same derived variants. Never hardcode these variants separately; derive them from the base token with `color-mix()`.
+
+- `*-hover` — Hover state for filled controls
+- `*-active` — Pressed state for buttons, tabs, toggles
+- `*-soft` — Soft tinted background for chips, callouts, glass plates
+- `*-subtle` — Very light wash for large sections and ambient surfaces
+- `*-border` — Tinted stroke for outlines and layered cards
+- `*-ring` — Focus ring and interactive halo
+- `*-shadow` — Colored shadow support for elevated or animated elements
 
 ## 3. Typography Rules
 
-字體架構要像編輯排版，不像產品 UI。層級靠字重、字距、欄寬與留白建立，不靠誇張大字與濫用 gradient text。
+This pass is focused on color and atmosphere, not a full typography rewrite. Keep the existing project font setup for now.
 
-- **Display:** `Cabinet Grotesk`, `Satoshi`, `Geist`, sans-serif
-  - 用於 Hero 主標與大區塊標題。
-  - 字重以 `600` 或 `700` 為主，`tracking: -0.04em` 到 `-0.06em`。
-  - Hero headline 使用 `clamp(3.4rem, 8vw, 6.8rem)`。
-  - 行高緊縮，維持在 `0.92` 到 `1.02`。
-- **Body:** `Satoshi`, `Geist`, sans-serif
-  - 用於段落、說明、表單文案。
-  - 正文尺寸 `1rem` 至 `1.125rem`，行高 `1.65` 左右。
-  - 段落寬度控制在 `58ch` 到 `65ch`。
-- **Mono:** `Geist Mono`, `JetBrains Mono`, monospace
-  - 僅用於步驟標號、微型標記、表單欄位 meta label、小型介面切片註記。
-  - 不要大段使用，不要做駭客風。
-- **Support smallcaps:** 如需小型導覽標記，可用大寫 monospace 或 sans 小字，但避免 `LABEL // YEAR` 格式。
+When typography is revisited, the interface should move toward a clean sans-led system:
 
-排版規則：
+- **Display / UI Headings:** `Geist`
+- **Body:** `Geist`
+- **Mono:** `Geist Mono`
 
-- 中文文案優先，不混入大量英文 slogan。
-- 標題盡量分兩到三行形成穩定節奏，避免整行撐滿螢幕。
-- 不用誇張字體混搭；整站最多一組 display sans + 一組 mono。
-- 不使用泛用 serif，也不做報紙式襯線混排。
-- 不使用 Inter。
+Avoid using serif typography in core product UI, metrics, forms, navigation, or dashboard-like sections. If a future editorial section needs serif contrast, it should be introduced intentionally and sparingly.
 
-## 4. Hero Direction
+## 4. Component Stylings
 
-Hero 必須一眼傳達這是一堂能幫人把網站做出來的課，但表現方式要偏編輯視覺，不是典型 sales page。
+- **Primary buttons:** Use `primary`, `primary-hover`, and `primary-active`. Depth should come from `primary-shadow`, not neon outer glow.
+- **Secondary buttons:** Use the `secondary` family rather than gray opacity hacks. Secondary actions should still feel designed, not disabled.
+- **Cards and panels:** Default to white or near-white surfaces with `secondary-soft` or `tertiary-subtle` used as section washes. Borders should use the corresponding `*-border` token.
+- **Focus states:** Prefer `*-ring` tokens over generic blue browser defaults.
+- **Interactive emphasis:** Reserve the strongest cobalt accents for moments that matter: hero CTAs, active tabs, progress states, selected filters.
 
-- 構圖採 **左重右輕** 或 **左主欄 + 右側材料牆**。
-- 主標直接承接文案核心：「2 小時用 AI 上線」必須可見，不能被抽象創意稀釋掉。
-- 第二行到第三行再講成果：「能展示服務、收集名單、讓人主動聯絡你的專業網站」。
-- 視覺裝置使用非人物素材：介面草圖、網站模組切片、粗框線便條、內容卡片、文件截面、網格紙感塊面。
-- 若使用 inline image typography，圖片內容只能是抽象工作材料或網站片段，不能是人像、裝飾插畫、科技光效。
-- 僅保留一個主要 CTA：`加入等候名單`。
-- 輔助說明可以存在，但不做第二顆等權按鈕。
-- 禁止置中 hero、禁止滿版背景圖、禁止浮動玻璃卡片濫用、禁止 scroll indicator。
+## 5. Layout Principles
 
-## 5. Content Mapping By Section
+- Keep the overall page bright, spacious, and editorial.
+- Use asymmetry and visual tension in hero and CTA sections, not in dense content blocks.
+- Let large creative objects live in their own spatial zone. Do not overlap them on top of body copy.
+- Maintain crisp white space and clear card framing so the stronger blue accents never muddy the hierarchy.
 
-整頁內容依 `docs/landing-copy.md` 展開，但每區塊的視覺職責要清楚分工。
+## 6. Motion & Interaction
 
-- **Hero**
-  - 交代承諾與結果。
-  - 視覺上最有張力，但不是資訊最多。
-- **痛點區塊**
-  - 做成編輯式條列，而不是 6 張等寬小卡。
-  - 建議用單欄編號清單或雙欄不對稱列表，強化「卡住的地方很多，但都有解法」。
-- **解決方法區塊**
-  - 用明確的 5-step flow。
-  - 每一步像工作流程，不像功能賣點。
-  - 可搭配微型界面切片與步驟編號。
-- **價值主張區塊**
-  - 做成三個結果，但禁止三等寬 feature cards。
-  - 建議用 1 大 2 小的不對稱組合，或垂直 stack。
-- **適合誰區塊**
-  - 重點是辨識感與代入感。
-  - 可用三段情境敘述，不要像 persona 行銷模板。
-- **收穫區塊**
-  - 表現成工具箱 / 講義感，而非 KPI。
-  - `10+ AI 專業指令與技能`、`10+ 質感模板、設計參考` 可以用標記式條目呈現，但不要發明更多數字。
-- **替代方案區塊**
-  - 採對照式 editorial layout。
-  - 左側列常見替代方案，右側指出斷裂點與這堂課補上的部分。
-  - 避免表格感太重。
-- **名單邀請區塊**
-  - 視覺上要變得更安定、可填寫、可信任。
-  - 表單是最重要的互動模組，要比前面任何裝飾都更清楚。
-- **結尾 CTA**
-  - 回到一句強而穩定的結論，不要再引入新資訊。
-- **講者介紹**
-  - 這是後段信任補強區，不搶 Hero。
-  - 即使之後加入，也應維持克制：照片可有，但不能把整頁語言切成「個人品牌自拍頁」。
+Motion intensity follows a focused rule: explosive in the hero and transitions, restrained in content.
 
-## 6. Component Stylings
+- **Hero motion:** slow float, layered reveal, light sweep, orbital drift, and depth-driven entrance timing
+- **CTA motion:** stronger hover pull, colored shadow bloom, clear press feedback
+- **Section transitions:** staggered reveal, blur-to-sharp settling, gentle upward drift
+- **Content areas:** minimal hover lift, focus halos, and small opacity or transform transitions only
 
-- **Buttons**
-  - Primary button 使用 `Studio Moss` 實底，文字為 `#FCFBF8`。
-  - 造型偏厚實膠囊矩形或大圓角矩形，圓角建議 `999px` 或 `1.25rem`。
-  - Active state 為輕微 `translateY(1px)` 與色彩變深，不加 glow。
-  - Secondary action 若需要，只能做文字連結或細框 ghost，不可與主 CTA 等權。
+All motion should stay hardware-accelerated and use `transform`, `opacity`, and filtered light effects only. Avoid layout-thrashing transitions.
 
-- **Cards / Containers**
-  - 只在需要集中資訊時使用，不要整頁都靠卡片。
-  - 圓角 `1.5rem` 到 `2rem`，陰影非常輕：像紙張浮起，不像 SaaS widget。
-  - 高密度資訊可改用上邊框、縮排與留白取代卡片。
+## 7. Anti-Patterns (Banned)
 
-- **Lists**
-  - 條列優先用編號、短線、縮排節奏，不用 icon 泡泡牆。
-  - 數字標號可用 monospace，尺寸小而穩，不誇張。
-
-- **Form**
-  - Label 置於輸入框上方，字級小但可讀。
-  - Input 背景用 `Editorial Surface` 或白底，邊框使用 `Quiet Line`。
-  - Focus ring 使用 `Studio Moss` 的 1.5px 到 2px 外框。
-  - 輸入框高度至少 `52px`，桌機與手機都維持舒適 tap target。
-  - 補充說明與隱私文字要清楚，但不應搶視覺。
-
-- **Section headers**
-  - 小型導標可用 mono / 小寫大寫混排，但語氣要克制。
-  - 大標與內文之間保留足夠呼吸，不把副標塞成牆。
-
-- **Dividers**
-  - 使用細線、空白、局部底色切換建立節奏。
-  - 不用粗重陰影區隔。
-
-- **Images / Visual modules**
-  - 以抽象工作材料、網站切片、便條感結構、框線模組為主。
-  - 不用科技插畫、3D blob、紫色發光球、人物主視覺。
-
-## 7. Layout Principles
-
-- 全站容器最大寬度 `1280px` 到 `1400px`，內容欄寬須分層，不可每區都同一寬度。
-- 主區塊垂直間距使用 `clamp(4rem, 8vw, 8rem)`。
-- Hero 使用非對稱欄寬，例如 `7 / 5`、`8 / 4`、或 `5 / 4 / 3` 的網格感分配。
-- 禁止「三等寬卡片橫排」。
-- 大部分區塊應採左對齊，不做通篇置中。
-- 重要內容區可用局部底色塊包覆，但底色塊本身也要保有大留白與鈍化邊界。
-- 使用 CSS Grid 思維描述版面，不做靠 margin 硬推的假不對稱。
-- 所有全高段落如果存在，必須使用 `min-height: 100dvh` 的語意，不使用 `h-screen`。
-
-推薦的區塊節奏：
-
-- Hero：寬、鬆、偏敘事。
-- 痛點：收斂、節點化。
-- 解法：有流程感。
-- 成果與適合對象：拉開欄寬差異，讓內容節奏變化。
-- 表單：回歸穩定、清楚、信任。
-
-## 8. Responsive Rules
-
-- `768px` 以下全部多欄內容折成單欄，保持閱讀線性。
-- Hero 的視覺材料模組在手機上應移到主標下方，不能擠在文字旁邊造成斷裂。
-- 主標在手機上最多三到四行，仍需保有節奏，不可縮成密集牆。
-- 手機版段落字級至少 `1rem`，CTA 高度至少 `48px`。
-- 所有表單欄位與按鈕在手機上單欄排列，不做左右並排。
-- 禁止任何水平捲動；編輯感來自欄寬與間距，不是超出版面。
-- 在小螢幕上保留「編輯感」的方法是節奏與留白，不是保留桌面版所有裝飾元素。
-
-## 9. Motion & Interaction
-
-動態只能用來增加精緻度與可感知性，不能搶內容。
-
-- 基礎動畫曲線使用 spring 語意：`stiffness: 100, damping: 20`。
-- 區塊進場採輕微向上位移 `8px - 16px` + opacity reveal。
-- 列表與流程步驟採 staggered reveal，但延遲要短，不做戲劇性長動畫。
-- Hero 視覺材料可有極輕微浮動或交錯位移，但幅度小於 `6px`。
-- Hover 僅做細微顏色變化、陰影濃度調整、或 1px 位移。
-- 表單 focus 與按鈕 active 必須有清楚回饋。
-- 所有動畫僅限 `transform`、`opacity`、`filter` 的低成本使用。
-- 不做無意義 perpetual animation；只有 hero 細節或材料模組可有近乎靜止的緩慢微動。
-
-## 10. Imagery & Art Direction
-
-- 圖像語言偏「工作檯面」而非「品牌形象照」。
-- 可使用：
-  - 網站 wireframe 局部
-  - 文案草稿紙片
-  - 表單欄位片段
-  - 排版版型局部
-  - 抽象化桌面材料與結構片
-- 不可使用：
-  - 人物主視覺
-  - 假 3D 科技插畫
-  - 漸層玻璃球
-  - 紫藍發光介面
-  - 無意義 stock photo
-- 若需要照片，優先是物件、工作材料、桌面、印刷紙感，而不是 smiling team photo。
-
-## 11. Copy Behavior
-
-- 語氣要像一個清楚、有經驗、知道學員會卡在哪裡的人。
-- 保留 `docs/landing-copy.md` 的務實口吻，不要改寫成品牌腔英文翻譯感。
-- 不使用 AI 文案套話：`提升效率`、`釋放潛能`、`無縫整合`、`next-gen`、`revolutionize`。
-- 不發明學員數、成功率、營收成長、轉換率等數據。
-- 若需要標記數量，只能使用文案中已有的 `10+`。
-- 所有 CTA 都回到同一件事：加入等候名單、留下需求、優先收到資訊。
-
-## 12. Anti-Patterns (Banned)
-
-- 不要使用 `Inter`。
-- 不要使用純黑 `#000000`。
-- 不要使用紫色或藍色科技霓虹 accent。
-- 不要使用置中 Hero。
-- 不要使用 3 欄等寬 feature cards。
-- 不要使用大面積漸層字。
-- 不要使用玻璃擬態濫用、過強 backdrop blur、發光陰影。
-- 不要使用人物照作為首頁第一視覺。
-- 不要使用表情符號。
-- 不要使用 fake metrics、fake dashboards、fake KPI 模組。
-- 不要使用 `LABEL // YEAR` 或類似 AI 排版口癖。
-- 不要使用 `John Doe`、`Acme`、`Nexus` 之類 generic placeholder。
-- 不要使用「Scroll to explore」「Swipe down」「Learn more」這類 filler CTA。
-- 不要用 hero 插畫把「做網站」表達成抽象宇宙或資料流光束。
-- 不要讓任何區塊看起來像現成模板拼起來的行銷頁。
+- No warm beige or olive carryover from the previous palette
+- No purple or violet neon gradients
+- No pure black (`#000000`)
+- No generic gray-only secondary surfaces when a semantic `secondary` token exists
+- No hardcoded hover or shadow colors for brand families
+- No glowing blur spam on every component
+- No high-noise motion in reading-heavy sections
+- No invented metrics or filler UI copy
