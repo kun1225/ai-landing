@@ -29,7 +29,7 @@ export function MethodSection() {
           {methodSteps.map((step, index) => (
             <div
               key={step.title}
-              className="landing-reveal rounded-[2rem] border border-border/70 bg-background/80 p-5 sm:p-6"
+              className="landing-reveal rounded-[2rem] border border-border/70 bg-secondary-subtle p-5 sm:p-6"
               style={{ animationDelay: `${index * 110}ms` }}
             >
               <div className="grid gap-4 sm:grid-cols-[auto_1fr]">

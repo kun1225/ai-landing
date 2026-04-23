@@ -10,7 +10,7 @@ export function DiagnosisSection() {
       description="真正讓網站看起來有 AI 味的，通常不是工具，而是沒有整理過的主次、沒有收斂過的文案，以及缺少判斷的版面與細節。"
     >
       <div className="grid gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-8">
-        <div className="space-y-5 rounded-[2.5rem] border border-border/70 bg-card/80 p-6 sm:p-8">
+        <div className="space-y-5 rounded-[2.5rem] border border-border/70 bg-secondary-subtle p-6 sm:p-8">
           <p className="text-sm font-medium tracking-[0.18em] text-primary uppercase">
             常見問題
           </p>
@@ -26,7 +26,7 @@ export function DiagnosisSection() {
           {diagnosisPoints.map((item, index) => (
             <div
               key={item.title}
-              className="landing-reveal rounded-[2rem] border border-border/70 bg-background/80 p-5 sm:p-6"
+              className="landing-reveal rounded-[2rem] border border-border/70 bg-secondary-subtle p-5 sm:p-6"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="grid gap-4 sm:grid-cols-[auto_1fr]">

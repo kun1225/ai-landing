@@ -12,7 +12,7 @@ export function HeroSection() {
             <h1 className="text-balance text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-foreground">
               <span className="block">不寫一行程式</span>
               <span className="block">2 小時用 AI 上線你的</span>
-              <span className="mt-7 block text-[0.88em] leading-[0.96] text-primary">
+              <span className="mt-7 block text-[clamp(3.9rem,9.4vw,6.9rem)] leading-[0.92] text-primary">
                 <span className="font-serif italic">
                   <HeroTypewriter words={heroKeywords} />
                 </span>

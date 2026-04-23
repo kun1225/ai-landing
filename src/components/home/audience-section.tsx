@@ -14,7 +14,7 @@ export function AudienceSection() {
           {fitSignals.map((item, index) => (
             <div
               key={item.title}
-              className="landing-reveal rounded-[2rem] border border-border/70 bg-background/80 p-5 sm:p-6"
+              className="landing-reveal rounded-[2rem] border border-border/70 bg-secondary-subtle p-5 sm:p-6"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <p className="text-sm font-medium tracking-[0.18em] text-primary uppercase">
@@ -26,14 +26,14 @@ export function AudienceSection() {
           ))}
         </div>
 
-        <div className="landing-panel rounded-[2.5rem] p-6 sm:p-8">
-          <p className="text-sm font-medium tracking-[0.18em] text-primary uppercase">
+        <div className="landing-accent-panel rounded-[2.5rem] p-6 sm:p-8">
+          <p className="text-sm font-medium tracking-[0.18em] text-primary-foreground/72 uppercase">
             這不是什麼
           </p>
-          <h3 className="mt-5 text-3xl font-heading leading-tight tracking-tight text-foreground">
+          <h3 className="mt-5 text-3xl font-heading leading-tight tracking-tight text-primary-foreground">
             這不是教你怎麼讓 AI 一鍵生出一個看起來很滿的頁面。
           </h3>
-          <p className="mt-4 text-base leading-8 text-muted-foreground">
+          <p className="mt-4 text-base leading-8 text-primary-foreground/78">
             這堂課比較像是把工作順序與判斷標準一起整理好，讓你知道每個區塊為什麼存在、哪些地方需要收斂、哪些地方會直接讓網站變得像模板。
           </p>
         </div>
