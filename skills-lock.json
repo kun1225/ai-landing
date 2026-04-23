@@ -11,6 +11,11 @@
       "sourceType": "github",
       "computedHash": "9d1e82c5c409d2b0247245a005bc0f7e4447c0999b78dcea60f568c1ba4a6694"
     },
+    "distill": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "669a671f855be8773e4c2936e54d4243fbd1d273f87633158544efe3dbc4d825"
+    },
     "full-output-enforcement": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",

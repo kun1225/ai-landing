@@ -32,19 +32,19 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#outline"
+            href="#method"
             className={cn(
               buttonVariants({ variant: "outline", size: "sm" }),
               "hidden sm:inline-flex"
             )}
           >
-            看工作坊內容
+            看方法
           </a>
           <a
             href="#waitlist"
             className={cn(buttonVariants({ size: "sm" }), "shadow-[0_16px_36px_var(--primary-shadow)]")}
           >
-            加入等候名單
+            加入候補名單
           </a>
         </div>
       </div>
