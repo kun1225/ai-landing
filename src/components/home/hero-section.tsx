@@ -5,7 +5,7 @@ const heroKeywords = ["作品集網站", "品牌網站", "預約網站"];
 
 export function HeroSection() {
   return (
-    <section className="border-b border-border/70">
+    <section>
       <div className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-5xl items-center justify-center px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
         <div className="flex max-w-4xl flex-col items-center text-center">
           <div className="landing-reveal space-y-7">

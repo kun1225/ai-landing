@@ -87,6 +87,39 @@ export const resultProof = [
   },
 ];
 
+export const studentShowcaseItems = [
+  {
+    name: "Thisweb Atelier",
+    type: "個人品牌網站",
+    layoutClassName: "lg:col-span-4 lg:col-start-1 lg:row-start-1",
+  },
+  {
+    name: "Between Lines",
+    type: "服務介紹網站",
+    layoutClassName: "lg:col-span-7 lg:col-start-6 lg:row-start-1",
+  },
+  {
+    name: "Open Practice",
+    type: "預約型網站",
+    layoutClassName: "lg:col-span-3 lg:col-start-1 lg:row-start-2",
+  },
+  {
+    name: "North Echo",
+    type: "作品集網站",
+    layoutClassName: "lg:col-span-4 lg:col-start-6 lg:row-start-2",
+  },
+  {
+    name: "Slow Form",
+    type: "課程活動網站",
+    layoutClassName: "lg:col-span-3 lg:col-start-10 lg:row-start-2 lg:ml-8",
+  },
+  {
+    name: "Frame Zero",
+    type: "品牌形象首頁",
+    layoutClassName: "lg:col-span-5 lg:col-start-1 lg:row-start-3",
+  },
+];
+
 export const waitlistFields = [
   {
     id: "email",

@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/home/hero-section";
 import { MethodSection } from "@/components/home/method-section";
 import { OutcomesSection } from "@/components/home/outcomes-section";
 import { SiteHeader } from "@/components/home/site-header";
+import { StudentWorkSection } from "@/components/home/student-work-section";
 import { WaitlistSection } from "@/components/home/waitlist-section";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
+        <StudentWorkSection />
         <AudienceSection />
         <DiagnosisSection />
         <MethodSection />
