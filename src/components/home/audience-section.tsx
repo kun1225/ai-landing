@@ -1,43 +1,88 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
 import { fitSignals } from "@/components/home/landing-content";
-import { SectionShell } from "@/components/home/section-shell";
+import { PageShell } from "@/components/layout/page-shell";
+
+const CARD_SCROLL_OFFSETS: [number, number][] = [
+  [0, 0.32],
+  [0.09, 0.41],
+  [0.18, 0.50],
+];
 
 export function AudienceSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
-    <SectionShell
+    <section
+      ref={sectionRef}
       id="fit"
-      eyebrow="適合誰"
-      title="這堂工作坊比較適合這樣的人"
-      description="你不一定是設計師或工程師，但你在意網站做出來不能廉價、不能太像模板，也不能一眼看出來只是把 AI 產出直接貼上去。"
+      className="scroll-mt-24 bg-background text-foreground"
     >
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.84fr)] lg:gap-8">
-        <div className="grid gap-4">
-          {fitSignals.map((item, index) => (
-            <div
-              key={item.title}
-              className="landing-reveal rounded-[2rem] border border-border/70 bg-secondary-subtle p-5 sm:p-6"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <p className="text-sm font-medium tracking-[0.18em] text-primary uppercase">
-                重點 0{index + 1}
-              </p>
-              <p className="mt-3 text-xl font-heading tracking-tight text-foreground">{item.title}</p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
+      <PageShell width="wide" className="py-64 sm:py-80 lg:py-96">
+        <div className="space-y-4">
+          <p className="text-xs font-medium tracking-[0.24em] text-muted-foreground uppercase">
+            適合誰
+          </p>
+          <h2 className="max-w-2xl text-balance font-heading text-3xl leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[3.1rem]">
+            這堂工作坊比較適合這樣的人
+          </h2>
         </div>
 
-        <div className="landing-accent-panel rounded-[2.5rem] p-6 sm:p-8">
-          <p className="text-sm font-medium tracking-[0.18em] text-primary-foreground/72 uppercase">
-            這不是什麼
-          </p>
-          <h3 className="mt-5 text-3xl font-heading leading-tight tracking-tight text-primary-foreground">
-            這不是教你怎麼讓 AI 一鍵生出一個看起來很滿的頁面。
-          </h3>
-          <p className="mt-4 text-base leading-8 text-primary-foreground/78">
-            這堂課比較像是把工作順序與判斷標準一起整理好，讓你知道每個區塊為什麼存在、哪些地方需要收斂、哪些地方會直接讓網站變得像模板。
-          </p>
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {fitSignals.map((item, index) => (
+            <ScrollCard
+              key={item.title}
+              item={item}
+              index={index}
+              scrollYProgress={scrollYProgress}
+              inputRange={CARD_SCROLL_OFFSETS[index]}
+            />
+          ))}
         </div>
-      </div>
-    </SectionShell>
+      </PageShell>
+    </section>
+  );
+}
+
+type ScrollCardProps = {
+  item: { title: string; description: string };
+  index: number;
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  inputRange: [number, number];
+};
+
+function ScrollCard({ item, index, scrollYProgress, inputRange }: ScrollCardProps) {
+  const y = useTransform(scrollYProgress, inputRange, [220, 0]);
+  const opacity = useTransform(scrollYProgress, inputRange, [0, 1]);
+  const borderOpacity = useTransform(scrollYProgress, [inputRange[1], inputRange[1] + 0.01], [0, 1]);
+
+  return (
+    <motion.div style={{ y, opacity }} className="relative pt-5">
+      {/* 預設 border */}
+      <div className="absolute inset-x-0 top-0 h-px bg-border/70" />
+      {/* 完成後顯示的 primary border */}
+      <motion.div
+        className="absolute inset-x-0 top-0 h-px bg-primary"
+        style={{ opacity: borderOpacity }}
+      />
+
+      <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground/60 uppercase">
+        0{index + 1}
+      </p>
+      <p className="mt-4 font-heading text-xl leading-snug tracking-tight text-foreground">
+        {item.title}
+      </p>
+      <p className="mt-3 text-sm leading-7 text-muted-foreground">
+        {item.description}
+      </p>
+    </motion.div>
   );
 }
