@@ -1,3 +1,4 @@
+import { PageShell } from "@/components/layout/page-shell";
 import { cn } from "@/lib/utils";
 
 type SectionShellProps = {
@@ -25,7 +26,7 @@ export function SectionShell({
         className
       )}
     >
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-8 lg:px-10">
+      <PageShell className="grid gap-12">
         <div className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] lg:items-end">
           <div className="space-y-4">
             <span className="inline-flex w-fit rounded-full border border-primary-border bg-primary-subtle px-4 py-1 text-xs font-medium tracking-[0.22em] text-primary uppercase">
@@ -42,7 +43,7 @@ export function SectionShell({
           ) : null}
         </div>
         {children}
-      </div>
+      </PageShell>
     </section>
   );
 }

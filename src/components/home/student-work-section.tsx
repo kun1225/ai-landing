@@ -1,12 +1,13 @@
 import Image from "next/image";
 
 import { studentShowcaseItems } from "@/components/home/landing-content";
+import { PageShell } from "@/components/layout/page-shell";
 import { cn } from "@/lib/utils";
 
 export function StudentWorkSection() {
   return (
     <section id="student-work" className="bg-background text-foreground">
-      <div className="mx-auto w-full max-w-[96rem] px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+      <PageShell width="wide" className="py-20 sm:py-24 lg:py-28">
         <div className="border-t border-border/70 pt-5">
           <div className="space-y-4">
             <p className="text-xs font-medium tracking-[0.24em] text-muted-foreground uppercase">
@@ -47,7 +48,7 @@ export function StudentWorkSection() {
             </article>
           ))}
         </div>
-      </div>
+      </PageShell>
     </section>
   );
 }

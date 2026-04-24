@@ -1,4 +1,5 @@
 import { HeroTypewriter } from "@/components/home/hero-typewriter";
+import { PageShell } from "@/components/layout/page-shell";
 import { Button } from "@/components/ui/button";
 
 const heroKeywords = ["作品集網站", "品牌網站", "預約網站"];
@@ -6,7 +7,10 @@ const heroKeywords = ["作品集網站", "品牌網站", "預約網站"];
 export function HeroSection() {
   return (
     <section>
-      <div className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-5xl items-center justify-center px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <PageShell
+        width="narrow"
+        className="flex min-h-[calc(100dvh-4rem)] items-center justify-center py-16 sm:py-20 lg:py-24"
+      >
         <div className="flex max-w-4xl flex-col items-center text-center">
           <div className="landing-reveal space-y-7">
             <h1 className="text-balance text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-foreground">
@@ -35,7 +39,7 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-      </div>
+      </PageShell>
     </section>
   );
 }

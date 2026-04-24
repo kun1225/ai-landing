@@ -1,11 +1,12 @@
 import { buttonVariants } from "@/components/ui/button";
 import { navigation } from "@/components/home/landing-content";
+import { PageShell } from "@/components/layout/page-shell";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/60 bg-background/85 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
+      <PageShell className="flex h-16 items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3 text-sm text-foreground">
           <span className="flex size-10 items-center justify-center rounded-full border border-primary-border bg-card shadow-[0_12px_30px_var(--secondary-shadow)]">
             <span className="size-3 rounded-full bg-primary" />
@@ -47,7 +48,7 @@ export function SiteHeader() {
             加入候補名單
           </a>
         </div>
-      </div>
+      </PageShell>
     </header>
   );
 }
