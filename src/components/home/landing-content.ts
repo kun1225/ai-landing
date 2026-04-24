@@ -118,6 +118,11 @@ export const studentShowcaseItems = [
     type: "品牌形象首頁",
     layoutClassName: "lg:col-span-5 lg:col-start-1 lg:row-start-3",
   },
+  {
+    name: "Quiet Goods",
+    type: "品牌展示網站",
+    layoutClassName: "lg:col-span-5 lg:col-start-8 lg:row-start-3",
+  },
 ];
 
 export const waitlistFields = [

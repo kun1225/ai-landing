@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function StudentWorkSection() {
   return (
     <section id="student-work" className="bg-background text-foreground">
-      <div className="mx-auto w-full max-w-[96rem] px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto w-full max-w-[96rem] px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="border-t border-border/70 pt-5">
           <div className="space-y-4">
             <p className="text-xs font-medium tracking-[0.24em] text-muted-foreground uppercase">
@@ -18,7 +18,7 @@ export function StudentWorkSection() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-x-8 gap-y-12 sm:gap-y-14 lg:grid-cols-12 lg:gap-y-16">
+        <div className="mt-14 grid gap-x-8 gap-y-14 sm:gap-y-16 lg:grid-cols-12 lg:gap-y-20">
           {studentShowcaseItems.map((item, index) => (
             <article
               key={item.name}
@@ -38,7 +38,7 @@ export function StudentWorkSection() {
                 />
               </div>
 
-              <div className="mt-4 border-t border-border/70 pt-3">
+              <div className="mt-5">
                 <p className="text-sm leading-6 text-foreground">{item.name}</p>
                 <p className="mt-1 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
                   {item.type}
