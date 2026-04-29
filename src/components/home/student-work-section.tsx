@@ -17,7 +17,7 @@ export function StudentWorkSection() {
             <p className="text-xs font-medium tracking-[0.24em] text-muted-foreground uppercase">
               學員作品
             </p>
-            <h2 className="max-w-xl text-balance font-heading text-3xl leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[3.1rem]">
+            <h2 className="max-w-xl leading-[1.2em] text-pretty font-heading text-3xl text-foreground sm:text-4xl lg:text-5xl">
               不靠模板堆疊，也能做出有自己語氣的第一版網站。
             </h2>
           </div>

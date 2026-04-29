@@ -85,7 +85,7 @@ export function HeroTypewriter({ words }: HeroTypewriterProps) {
       <span aria-hidden="true" className="whitespace-nowrap [grid-area:1/1]">
         {visibleWord}
         {!prefersReducedMotion ? (
-          <span className="ml-1 inline-block h-[0.9em] w-px animate-pulse bg-current align-[-0.08em]" />
+          <span className="typewriter-cursor ml-1 inline-block h-[0.9em] w-px align-[-0.08em]" />
         ) : null}
       </span>
       <span className="sr-only">{words.join("、")}</span>

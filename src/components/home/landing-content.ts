@@ -1,10 +1,37 @@
 export const navigation = [
-  { href: "#fit", label: "適合誰" },
+  { href: "#fit", label: "痛點" },
   { href: "#why", label: "為什麼會有 AI 味" },
   { href: "#method", label: "方法" },
   { href: "#results", label: "你會得到什麼" },
   { href: "#waitlist", label: "候補名單" },
 ];
+
+export const painPoints = [
+  {
+    title: "做出來的設計充滿 AI 味",
+    description:
+      "科技感的漸層色調、公式化版型、到處用 Emoji⋯⋯",
+    icon: "repeated-cards",
+  },
+  {
+    title: "想調整設計，怎麼改都不對",
+    description:
+      "AI 經常越改越糟糕，不知問題出在指令、工具還是模型",
+    icon: "misaligned-slider",
+  },
+  {
+    title: "看不懂程式碼，出錯只能祈禱",
+    description:
+      "畫面、功能出錯向 AI 求救，常常改 A 壞 B",
+    icon: "broken-code",
+  },
+  {
+    title: "做出一個成功網站，不知道怎麼再做出第二個",
+    description:
+      "缺少穩定的設計流程，每次下指令都像在抽卡",
+    icon: "branching-path",
+  },
+] as const;
 
 export const fitSignals = [
   {

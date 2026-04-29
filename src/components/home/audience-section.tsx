@@ -9,7 +9,7 @@ import { PageShell } from "@/components/layout/page-shell";
 const CARD_SCROLL_OFFSETS: [number, number][] = [
   [0, 0.32],
   [0.09, 0.41],
-  [0.18, 0.50],
+  [0.18, 0.5],
 ];
 
 export function AudienceSection() {
@@ -23,7 +23,7 @@ export function AudienceSection() {
   return (
     <section
       ref={sectionRef}
-      id="fit"
+      id="audience"
       className="scroll-mt-24 bg-background text-foreground"
     >
       <PageShell width="wide" className="py-64 sm:py-80 lg:py-96">
@@ -59,16 +59,23 @@ type ScrollCardProps = {
   inputRange: [number, number];
 };
 
-function ScrollCard({ item, index, scrollYProgress, inputRange }: ScrollCardProps) {
+function ScrollCard({
+  item,
+  index,
+  scrollYProgress,
+  inputRange,
+}: ScrollCardProps) {
   const y = useTransform(scrollYProgress, inputRange, [220, 0]);
   const opacity = useTransform(scrollYProgress, inputRange, [0, 1]);
-  const borderOpacity = useTransform(scrollYProgress, [inputRange[1], inputRange[1] + 0.01], [0, 1]);
+  const borderOpacity = useTransform(
+    scrollYProgress,
+    [inputRange[1], inputRange[1] + 0.01],
+    [0, 1],
+  );
 
   return (
     <motion.div style={{ y, opacity }} className="relative pt-5">
-      {/* 預設 border */}
       <div className="absolute inset-x-0 top-0 h-px bg-border/70" />
-      {/* 完成後顯示的 primary border */}
       <motion.div
         className="absolute inset-x-0 top-0 h-px bg-primary"
         style={{ opacity: borderOpacity }}
